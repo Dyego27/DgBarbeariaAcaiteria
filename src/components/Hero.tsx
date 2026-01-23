@@ -6,7 +6,7 @@ export default function Hero() {
     <header className="bg-black flex justify-between items-center h-24 w-full px-6">
       <div className="flex-shrink-0">
         <Image
-          src="/IMG_3539.PNG"
+          src="/LogoDg.PNG"
           alt="Logo Barbearia"
           width={90}
           height={80}
