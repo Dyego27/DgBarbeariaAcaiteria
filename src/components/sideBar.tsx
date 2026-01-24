@@ -14,7 +14,6 @@ import {
 
 export function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
-
   const [activeItem, setActiveItem] = useState("home");
 
   const scrollToSection = (id: string) => {
@@ -28,9 +27,7 @@ export function Sidebar() {
   return (
     <aside
       className={`fixed top-0 right-0 z-[100] h-screen transition-all duration-300 
-      ${
-        isExpanded ? "w-64" : "w-20"
-      } bg-gray-200 border-l flex flex-col shadow-2xl`}
+      ${isExpanded ? "w-64" : "w-20"} bg-gray-200 border-l flex flex-col shadow-2xl`}
     >
       {/* Botão de Abrir/Fechar */}
       <div className="p-4 flex justify-start items-center h-20">
@@ -46,6 +43,7 @@ export function Sidebar() {
         </button>
       </div>
 
+      {/* Navegação Principal */}
       <nav className="flex-1 px-3 space-y-2">
         <SidebarItem
           icon={<House size={24} />}
@@ -84,18 +82,34 @@ export function Sidebar() {
           text="Instagram"
           expanded={isExpanded}
           active={activeItem === "instagram"}
-          onClick={() => window.open("https://instagram.com", "_blank")}
+          onClick={() =>
+            window.open("https://www.instagram.com/dg_barbearia135/", "_blank")
+          }
         />
+
+        {/* ABA DO CRIADOR COM LINKS REAIS */}
         <SidebarItem
           icon={<Code size={24} />}
           text="Criador do Site"
           expanded={isExpanded}
           active={activeItem === "criador"}
-          subItems={["Linkedin", "Github", "Instagram"]}
+          subItems={[
+            {
+              label: "Linkedin",
+              href: "https://www.linkedin.com/in/dyego-luis-252244354/s",
+            },
+            { label: "Github", href: "https://github.com/Dyego27" },
+            { label: "Instagram", href: "https://instagram.com/Dynho999" },
+          ]}
         />
       </div>
     </aside>
   );
+}
+
+interface SubItem {
+  label: string;
+  href: string;
 }
 
 interface SidebarItemProps {
@@ -104,7 +118,7 @@ interface SidebarItemProps {
   expanded: boolean;
   active?: boolean;
   onClick?: () => void;
-  subItems?: string[];
+  subItems?: SubItem[];
 }
 
 function SidebarItem({
@@ -165,12 +179,13 @@ function SidebarItem({
 
       {expanded && isOpen && subItems.length > 0 && (
         <div className="ml-8 mt-1 flex flex-col border-l-2 border-purple-300">
-          {subItems.map((s, i) => (
+          {subItems.map((item, i) => (
             <button
               key={i}
-              className="text-left text-sm py-2 px-4 text-gray-500 hover:text-purple-600 transition-colors"
+              onClick={() => window.open(item.href, "_blank")}
+              className="text-left text-sm py-2 px-4 text-gray-500 hover:text-purple-600 transition-colors font-medium"
             >
-              {s}
+              {item.label}
             </button>
           ))}
         </div>
