@@ -12,7 +12,7 @@ export default function HomePage() {
           src="/FundoPage.jpeg"
           alt="Background"
           fill
-          className="object-cover opacity-30 blur-sm"
+          className="object-cover opacity-30 blur-xs "
           priority
         />
 

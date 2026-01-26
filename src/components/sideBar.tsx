@@ -53,12 +53,13 @@ export function Sidebar() {
           onClick={() => scrollToSection("home")}
         />
         <SidebarItem
-          icon={<Users size={24} />}
-          text="Comentários"
+          icon={<ImageSquare size={24} />}
+          text="Nossa galeria"
           expanded={isExpanded}
-          active={activeItem === "comentarios"}
-          onClick={() => scrollToSection("comentarios")}
+          active={activeItem === "galeria"}
+          onClick={() => scrollToSection("galeria")}
         />
+
         <SidebarItem
           icon={<Calendar size={24} />}
           text="Agende um horário"
@@ -67,11 +68,11 @@ export function Sidebar() {
           onClick={() => scrollToSection("agendamento")}
         />
         <SidebarItem
-          icon={<ImageSquare size={24} />}
-          text="Nossa galeria"
+          icon={<Users size={24} />}
+          text="avaliações"
           expanded={isExpanded}
-          active={activeItem === "galeria"}
-          onClick={() => scrollToSection("galeria")}
+          active={activeItem === "avaliações"}
+          onClick={() => scrollToSection("comentarios")}
         />
       </nav>
 

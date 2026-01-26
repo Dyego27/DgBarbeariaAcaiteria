@@ -1,3 +1,4 @@
+import Gallery from "../components/Gallery";
 import Hero from "../components/Hero";
 import HomePage from "../components/HomePage";
 import { Sidebar } from "../components/sideBar";
@@ -12,21 +13,18 @@ export default function Home() {
         </section>
 
         <section
+          id="galeria"
+          className=" bg-zinc-950 text-white text-center border-t border-zinc-800"
+        >
+          <Gallery />
+        </section>
+
+        <section
           id="comentarios"
           className="py-20 bg-black text-white text-center border-t border-zinc-800"
         >
           <h2 className="text-3xl font-bold">Comentários</h2>
           <p className="text-zinc-500 mt-4">Conteúdo em desenvolvimento...</p>
-        </section>
-
-        <section
-          id="galeria"
-          className="py-20 bg-zinc-950 text-white text-center border-t border-zinc-800"
-        >
-          <h2 className="text-3xl font-bold">Nossa Galeria</h2>
-          <p className="text-zinc-500 mt-4">
-            As fotos aparecerão aqui em breve.
-          </p>
         </section>
 
         <footer className="py-10 text-center text-zinc-600 text-sm">
