@@ -1,3 +1,4 @@
+import BookNow from "../components/BookNow";
 import Gallery from "../components/Gallery";
 import Hero from "../components/Hero";
 import HomePage from "../components/HomePage";
@@ -18,7 +19,12 @@ export default function Home() {
         >
           <Gallery />
         </section>
-
+        <section
+          id="agendamento"
+          className="bg-zinc-950 text-white text-center border-t border-zinc-800"
+        >
+          <BookNow />
+        </section>
         <section
           id="comentarios"
           className="py-20 bg-black text-white text-center border-t border-zinc-800"
