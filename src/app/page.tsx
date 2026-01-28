@@ -2,6 +2,7 @@ import BookNow from "../components/BookNow";
 import Gallery from "../components/Gallery";
 import Hero from "../components/Hero";
 import HomePage from "../components/HomePage";
+import Review from "../components/Review";
 import { Sidebar } from "../components/sideBar";
 
 export default function Home() {
@@ -29,8 +30,7 @@ export default function Home() {
           id="comentarios"
           className="py-20 bg-black text-white text-center border-t border-zinc-800"
         >
-          <h2 className="text-3xl font-bold">Comentários</h2>
-          <p className="text-zinc-500 mt-4">Conteúdo em desenvolvimento...</p>
+          <Review />
         </section>
 
         <footer className="py-10 text-center text-zinc-600 text-sm">
