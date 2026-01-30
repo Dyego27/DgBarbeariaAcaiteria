@@ -11,6 +11,7 @@ import {
   CaretRight,
   CaretDown,
 } from "phosphor-react";
+import { Toolbox } from "lucide-react";
 
 export function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -74,9 +75,15 @@ export function Sidebar() {
           active={activeItem === "avaliações"}
           onClick={() => scrollToSection("comentarios")}
         />
+        <SidebarItem
+          icon={<Toolbox size={24} />}
+          text="Equipamentos"
+          expanded={isExpanded}
+          active={activeItem === "equipamentos"}
+          onClick={() => scrollToSection("equipamentos")}
+        />
       </nav>
 
-      {/* Rodapé da Sidebar */}
       <div className="p-3 border-t space-y-2">
         <SidebarItem
           icon={<InstagramLogo size={24} />}
@@ -88,7 +95,6 @@ export function Sidebar() {
           }
         />
 
-        {/* ABA DO CRIADOR COM LINKS REAIS */}
         <SidebarItem
           icon={<Code size={24} />}
           text="Criador do Site"

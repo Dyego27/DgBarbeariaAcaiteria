@@ -1,4 +1,5 @@
 import BookNow from "../components/BookNow";
+import Equipment from "../components/Equipment";
 import Gallery from "../components/Gallery";
 import Hero from "../components/Hero";
 import HomePage from "../components/HomePage";
@@ -31,6 +32,9 @@ export default function Home() {
           className="py-20 bg-black text-white text-center border-t border-zinc-800"
         >
           <Review />
+        </section>
+        <section id="equipamentos">
+          <Equipment />
         </section>
 
         <footer className="py-10 text-center text-zinc-600 text-sm">

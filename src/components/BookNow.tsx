@@ -72,7 +72,6 @@ export default function BookNow() {
 
   return (
     <section className="py-28 px-6 flex justify-center items-center relative overflow-hidden">
-      {/* FUNDO ORIGINAL (mantido) */}
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-300 via-purple-200/60 to-zinc-400" />
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-purple-300/40 rounded-full blur-3xl" />
 
@@ -88,7 +87,6 @@ export default function BookNow() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-10 space-y-6">
-          {/* Nome */}
           <div>
             <label className="text-sm text-zinc-300">Nome *</label>
             <div className="relative mt-2">
@@ -112,7 +110,6 @@ export default function BookNow() {
             )}
           </div>
 
-          {/* Telefone */}
           <div>
             <label className="text-sm text-zinc-300">Telefone *</label>
             <div className="relative mt-2">
@@ -136,7 +133,6 @@ export default function BookNow() {
             )}
           </div>
 
-          {/* Data */}
           <div>
             <label className="text-sm text-zinc-300">Data *</label>
             <div className="relative mt-2">
@@ -160,7 +156,6 @@ export default function BookNow() {
             )}
           </div>
 
-          {/* Descrição */}
           <div>
             <label className="text-sm text-zinc-300">Descrição</label>
             <textarea
@@ -172,7 +167,6 @@ export default function BookNow() {
             />
           </div>
 
-          {/* Botão */}
           <button
             type="submit"
             disabled={loading}
