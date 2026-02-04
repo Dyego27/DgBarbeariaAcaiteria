@@ -37,16 +37,6 @@ export default function HomePage() {
             Açaiteria
           </span>
         </h1>
-
-        <div className="flex justify-center gap-4 mt-8">
-          <Button className="bg-purple-700 hover:bg-purple-800 text-white px-8 h-12 text-lg transition-colors shadow-lg shadow-purple-500/20">
-            Conheça nosso espaço
-          </Button>
-
-          <Button className="bg-purple-700 hover:bg-purple-800 text-white px-8 h-12 text-lg transition-colors flex items-center gap-2 shadow-lg shadow-purple-500/20">
-            Certificados <Download size={20} />
-          </Button>
-        </div>
       </div>
     </section>
   );

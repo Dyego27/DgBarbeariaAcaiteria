@@ -1,5 +1,7 @@
+import AdressAutocomplete from "../components/AddressAutocomplete";
 import BookNow from "../components/BookNow";
 import Equipment from "../components/Equipment";
+import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import Hero from "../components/Hero";
 import HomePage from "../components/HomePage";
@@ -37,9 +39,11 @@ export default function Home() {
           <Equipment />
         </section>
 
-        <footer className="py-10 text-center text-zinc-600 text-sm">
-          © 2024 DG Barbearia e Açaiteria - Todos os direitos reservados.
-        </footer>
+        <section id="endereco">
+          <AdressAutocomplete />
+        </section>
+
+        <Footer />
       </div>
 
       <Sidebar />

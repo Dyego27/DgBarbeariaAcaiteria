@@ -10,27 +10,21 @@ import {
   CaretLeft,
   CaretRight,
   CaretDown,
+  MapTrifold,
 } from "phosphor-react";
 import { Toolbox } from "lucide-react";
-
+import { useScrollToSection } from "../hooks/useScrollToSection";
 export function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeItem, setActiveItem] = useState("home");
 
-  const scrollToSection = (id: string) => {
-    setActiveItem(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { scrollToSection } = useScrollToSection();
 
   return (
     <aside
       className={`fixed top-0 right-0 z-[100] h-screen transition-all duration-300 
       ${isExpanded ? "w-64" : "w-20"} bg-gray-200 border-l flex flex-col shadow-2xl`}
     >
-      {/* Botão de Abrir/Fechar */}
       <div className="p-4 flex justify-start items-center h-20">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -44,7 +38,6 @@ export function Sidebar() {
         </button>
       </div>
 
-      {/* Navegação Principal */}
       <nav className="flex-1 px-3 space-y-2">
         <SidebarItem
           icon={<House size={24} />}
@@ -81,6 +74,13 @@ export function Sidebar() {
           expanded={isExpanded}
           active={activeItem === "equipamentos"}
           onClick={() => scrollToSection("equipamentos")}
+        />
+        <SidebarItem
+          icon={<MapTrifold size={24} />}
+          text="Endereço"
+          expanded={isExpanded}
+          active={activeItem === "endereco"}
+          onClick={() => scrollToSection("endereco")}
         />
       </nav>
 
