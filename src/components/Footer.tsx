@@ -10,7 +10,12 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full  flex items-center justify-center font-bold">
-              <Image src="/Logo.PNG" width={100} height={100} />
+              <Image
+                src="/Logo.PNG"
+                width={100}
+                height={100}
+                alt="Logo da Barbearia do Denius"
+              />
             </div>
             <span className="text-lg font-semibold">Barbershop</span>
           </div>

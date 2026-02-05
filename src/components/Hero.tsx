@@ -13,6 +13,7 @@ export default function Hero() {
           height={60}
           className="object-contain sm:w-[90px] sm:h-[80px]"
           priority
+          alt="Logo da Barbearia do Denius"
         />
 
         {/* Title */}
