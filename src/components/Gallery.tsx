@@ -15,14 +15,26 @@ export default function Gallery() {
 
   return (
     <section className="py-24 text-white border-t border-zinc-800">
-      <div className="text-center mb-14">
-        <h1 className="text-4xl font-bold tracking-widest">Nossa Galeria</h1>
+      {/* Header */}
+      <div className="text-center mb-14 px-4">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-widest">
+          Nossa Galeria
+        </h1>
         <p className="text-zinc-400 mt-3 text-sm">
           Precision cuts. Bold transformations. Real results.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-4 grid-rows-2 gap-4 px-6">
+      {/* Grid */}
+      <div
+        className="
+          max-w-6xl mx-auto px-4
+          grid gap-4
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-4 lg:grid-rows-2
+        "
+      >
         {images.map((img) => {
           const isHovered = hovered === img.id;
           const isAnotherHovered = hovered !== null && !isHovered;
@@ -33,13 +45,13 @@ export default function Gallery() {
               onMouseEnter={() => setHovered(img.id)}
               onMouseLeave={() => setHovered(null)}
               className={`
-    relative overflow-hidden rounded-xl
-    aspect-[4/5]
-    transition-all duration-300 ease-out
-    ${img.big ? "col-span-2 row-span-2 aspect-[4/5]" : ""}
-    ${isHovered ? "scale-105 z-10" : ""}
-    ${isAnotherHovered ? "scale-95 opacity-70" : ""}
-  `}
+                relative overflow-hidden rounded-xl
+                aspect-[4/5]
+                transition-all duration-300 ease-out
+                ${img.big ? "lg:col-span-2 lg:row-span-2" : ""}
+                ${isHovered ? "lg:scale-105 lg:z-10" : ""}
+                ${isAnotherHovered ? "lg:scale-95 lg:opacity-70" : ""}
+              `}
             >
               <Image
                 src={img.src}
@@ -51,23 +63,26 @@ export default function Gallery() {
           );
         })}
       </div>
+
+      {/* Button */}
       <div className="flex justify-center mt-14">
         <a
           href="https://www.instagram.com/dg_barbearia135/"
           target="_blank"
           rel="noopener noreferrer"
           className="
-      inline-flex items-center justify-center
-      px-10 h-12 w-60
-      text-sm font-semibold tracking-widest uppercase
-      text-white
-      bg-purple-800
-      border border-white
-      rounded-full
-      hover:bg-purple-700 
-      transition-all duration-300
-      shadow-lg shadow-purple-700/30
-    "
+            relative inline-flex items-center justify-center
+            px-10 h-12 w-60
+            text-sm font-semibold tracking-widest uppercase
+            text-black
+            bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-600
+            bg-[length:300%_300%]
+            border border-amber-400
+            rounded-full
+            transition-all duration-300
+            hover:animate-[gradient-move_3s_linear_infinite]
+            hover:shadow-[0_0_35px_rgba(249,115,22,0.9)]
+          "
         >
           Ver mais
         </a>

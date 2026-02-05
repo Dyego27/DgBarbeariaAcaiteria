@@ -11,7 +11,7 @@ import { Sidebar } from "../components/sideBar";
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
-      <div className="flex-1 pr-20">
+      <div className="flex-1 pr-14">
         <section id="home">
           <Hero />
           <HomePage />

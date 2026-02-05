@@ -63,13 +63,13 @@ const equipment = [
 
 export default function Equipment() {
   return (
-    <section className="relative bg-gradient-to-br from-[#1a1a1f] via-[#1f1b2e] to-[#0e0e12] py-24">
+    <section className="relative bg-gradient-to-b from-black via-zinc-950 to-black py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white">
             Equipamentos & Produtos Premium
           </h2>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
             Utilizamos apenas equipamentos e produtos profissionais de alto
             padrão para garantir resultados excepcionais em cada atendimento.
           </p>
@@ -81,15 +81,21 @@ export default function Equipment() {
             return (
               <div
                 key={index}
-                className=" cursor-pointer group relative rounded-xl bg-[#1c1c23]/80 p-6 border border-white/5
-                transition-all duration-300 hover:-translate-y-2
-                hover:bg-gradient-to-br hover:from-purple-700/30 hover:to-purple-900/20
-                hover:border-purple-500/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+                className="
+              cursor-pointer group relative rounded-xl
+              bg-zinc-900/80 p-6 border border-zinc-800
+              transition-all duration-300 hover:-translate-y-2
+              hover:border-amber-500/40
+              hover:shadow-[0_0_30px_rgba(251,191,36,0.25)]
+            "
               >
                 <div
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg
-                  bg-purple-600/20 text-purple-400
-                  group-hover:bg-purple-600/30 group-hover:text-purple-300 transition"
+                  className="
+                mb-4 flex h-12 w-12 items-center justify-center rounded-lg
+                bg-amber-500/15 text-amber-400
+                group-hover:bg-amber-500/25 group-hover:text-amber-300
+                transition
+              "
                 >
                   <Icon size={24} weight="duotone" />
                 </div>

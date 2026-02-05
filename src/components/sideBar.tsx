@@ -6,197 +6,121 @@ import {
   Calendar,
   ImageSquare,
   InstagramLogo,
-  Code,
-  CaretLeft,
-  CaretRight,
-  CaretDown,
   MapTrifold,
 } from "phosphor-react";
-import { Toolbox } from "lucide-react";
+import { Toolbox, Code } from "lucide-react";
 import { useScrollToSection } from "../hooks/useScrollToSection";
-export function Sidebar() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [activeItem, setActiveItem] = useState("home");
 
+export function Sidebar() {
+  const [activeItem, setActiveItem] = useState<string | null>(null);
   const { scrollToSection } = useScrollToSection();
 
   return (
     <aside
-      className={`fixed top-0 right-0 z-[100] h-screen transition-all duration-300 
-      ${isExpanded ? "w-64" : "w-20"} bg-gray-200 border-l flex flex-col shadow-2xl`}
+      className="
+        fixed top-0 right-0 z-[100] h-screen
+        w-14 sm:w-16
+        bg-gray-100 border-l shadow-xl
+        flex flex-col
+      "
     >
-      <div className="p-4 flex justify-start items-center h-20">
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
-        >
-          {isExpanded ? (
-            <CaretRight size={20} weight="bold" />
-          ) : (
-            <CaretLeft size={20} weight="bold" />
-          )}
-        </button>
-      </div>
-
-      <nav className="flex-1 px-3 space-y-2">
+      {/* MENU */}
+      <nav className="flex-1 flex flex-col items-center pt-24 gap-3">
         <SidebarItem
-          icon={<House size={24} />}
-          text="Home"
-          expanded={isExpanded}
+          icon={<House size={22} />}
           active={activeItem === "home"}
-          onClick={() => scrollToSection("home")}
-        />
-        <SidebarItem
-          icon={<ImageSquare size={24} />}
-          text="Nossa galeria"
-          expanded={isExpanded}
-          active={activeItem === "galeria"}
-          onClick={() => scrollToSection("galeria")}
+          onClick={() => {
+            setActiveItem("home");
+            scrollToSection("home");
+          }}
         />
 
         <SidebarItem
-          icon={<Calendar size={24} />}
-          text="Agende um horário"
-          expanded={isExpanded}
+          icon={<ImageSquare size={22} />}
+          active={activeItem === "galeria"}
+          onClick={() => {
+            setActiveItem("galeria");
+            scrollToSection("galeria");
+          }}
+        />
+
+        <SidebarItem
+          icon={<Calendar size={22} />}
           active={activeItem === "agendamento"}
-          onClick={() => scrollToSection("agendamento")}
+          onClick={() => {
+            setActiveItem("agendamento");
+            scrollToSection("agendamento");
+          }}
         />
+
         <SidebarItem
-          icon={<Users size={24} />}
-          text="avaliações"
-          expanded={isExpanded}
-          active={activeItem === "avaliações"}
-          onClick={() => scrollToSection("comentarios")}
+          icon={<Users size={22} />}
+          active={activeItem === "avaliacoes"}
+          onClick={() => {
+            setActiveItem("avaliacoes");
+            scrollToSection("comentarios");
+          }}
         />
+
         <SidebarItem
-          icon={<Toolbox size={24} />}
-          text="Equipamentos"
-          expanded={isExpanded}
+          icon={<Toolbox size={22} />}
           active={activeItem === "equipamentos"}
-          onClick={() => scrollToSection("equipamentos")}
+          onClick={() => {
+            setActiveItem("equipamentos");
+            scrollToSection("equipamentos");
+          }}
         />
+
         <SidebarItem
-          icon={<MapTrifold size={24} />}
-          text="Endereço"
-          expanded={isExpanded}
+          icon={<MapTrifold size={22} />}
           active={activeItem === "endereco"}
-          onClick={() => scrollToSection("endereco")}
+          onClick={() => {
+            setActiveItem("endereco");
+            scrollToSection("endereco");
+          }}
         />
       </nav>
 
-      <div className="p-3 border-t space-y-2">
+      {/* RODAPÉ */}
+      <div className="pb-4 flex flex-col items-center gap-3 border-t pt-4">
         <SidebarItem
-          icon={<InstagramLogo size={24} />}
-          text="Instagram"
-          expanded={isExpanded}
-          active={activeItem === "instagram"}
+          icon={<InstagramLogo size={22} />}
           onClick={() =>
             window.open("https://www.instagram.com/dg_barbearia135/", "_blank")
           }
         />
 
         <SidebarItem
-          icon={<Code size={24} />}
-          text="Criador do Site"
-          expanded={isExpanded}
-          active={activeItem === "criador"}
-          subItems={[
-            {
-              label: "Linkedin",
-              href: "https://www.linkedin.com/in/dyego-luis-252244354/s",
-            },
-            { label: "Github", href: "https://github.com/Dyego27" },
-            { label: "Instagram", href: "https://instagram.com/Dynho999" },
-          ]}
+          icon={<Code size={22} />}
+          onClick={() => window.open("https://github.com/Dyego27", "_blank")}
         />
       </div>
     </aside>
   );
 }
 
-interface SubItem {
-  label: string;
-  href: string;
-}
-
 interface SidebarItemProps {
   icon: React.ReactNode;
-  text: string;
-  expanded: boolean;
   active?: boolean;
   onClick?: () => void;
-  subItems?: SubItem[];
 }
 
-function SidebarItem({
-  icon,
-  text,
-  expanded,
-  active = false,
-  onClick,
-  subItems = [],
-}: SidebarItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    if (subItems.length > 0) {
-      setIsOpen(!isOpen);
-    }
-    if (onClick) {
-      onClick();
-    }
-  };
-
+function SidebarItem({ icon, active = false, onClick }: SidebarItemProps) {
   return (
-    <div className="relative group">
-      <div
-        onClick={handleClick}
-        className={`flex items-center py-3 px-3 rounded-md cursor-pointer transition-all
-          ${
-            active
-              ? "bg-purple-600 text-white shadow-md"
-              : "hover:bg-gray-300 text-gray-600"
-          }
-        `}
-      >
-        {icon}
-        <span
-          className={`transition-all overflow-hidden whitespace-nowrap ${
-            expanded ? "w-40 ml-3" : "w-0"
-          }`}
-        >
-          {text}
-        </span>
-
-        {expanded && subItems.length > 0 && (
-          <CaretDown
-            size={14}
-            className={`ml-auto transition-transform ${
-              isOpen ? "rotate-180" : ""
-            }`}
-          />
-        )}
-
-        {!expanded && (
-          <div className="absolute right-full mr-4 rounded-md px-2 py-1 bg-gray-900 text-white text-xs invisible opacity-0 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 whitespace-nowrap z-[110]">
-            {text}
-          </div>
-        )}
-      </div>
-
-      {expanded && isOpen && subItems.length > 0 && (
-        <div className="ml-8 mt-1 flex flex-col border-l-2 border-purple-300">
-          {subItems.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => window.open(item.href, "_blank")}
-              className="text-left text-sm py-2 px-4 text-gray-500 hover:text-purple-600 transition-colors font-medium"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+    <button
+      onClick={onClick}
+      className={`
+        w-10 h-10 sm:w-11 sm:h-11
+        flex items-center justify-center
+        rounded-xl transition-all
+        ${
+          active
+            ? "bg-amber-500 text-black shadow-md"
+            : "text-gray-600 hover:bg-amber-500/20"
+        }
+      `}
+    >
+      {icon}
+    </button>
   );
 }

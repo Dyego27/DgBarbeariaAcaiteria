@@ -3,24 +3,39 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <header className="bg-black flex justify-between items-center h-24 w-full px-6">
-      <div className="flex-shrink-0">
+    <header className="bg-black flex items-center h-20 sm:h-24 w-full px-4 sm:px-6">
+      <div className="flex items-center gap-3 sm:gap-4 w-full">
+        {/* Logo */}
         <Image
-          src="/LogoDg.PNG"
+          src="/Logo.PNG"
           alt="Logo Barbearia"
-          width={90}
-          height={80}
-          className="object-contain"
+          width={70}
+          height={60}
+          className="object-contain sm:w-[90px] sm:h-[80px]"
           priority
         />
-      </div>
 
-      <h1 className="text-white text-xl md:text-3xl text-center flex-1 px-4">
-        DG Barbearia{" "}
-        <span className="bg-gradient-to-r from-purple-400 --hsl-purple-600 to-purple-600 bg-clip-text text-transparent font-bold ">
-          Açaiteria
-        </span>
-      </h1>
+        {/* Title */}
+        <h1 className="text-white text-lg sm:text-2xl md:text-3xl text-center flex-1">
+          Barbearia de{" "}
+          <span
+            className="
+              bg-gradient-to-r 
+              from-yellow-300 
+              via-orange-500 
+              to-red-600
+              bg-[length:400%_400%]
+              animate-[gradient-move_3s_linear_infinite]
+              bg-clip-text 
+              text-transparent 
+              font-extrabold
+              tracking-wide
+            "
+          >
+            Denius
+          </span>
+        </h1>
+      </div>
     </header>
   );
 }

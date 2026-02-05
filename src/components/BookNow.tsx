@@ -19,21 +19,9 @@ export default function BookNow() {
 
   function validate() {
     const newErrors: typeof errors = {};
-
-    if (!name.trim()) {
-      newErrors.name = "Esse campo é obrigatório";
-    }
-
-    if (!phone.trim()) {
-      newErrors.phone = "Esse campo é obrigatório";
-    } else if (!/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(phone)) {
-      newErrors.phone = "Número de celular inválido";
-    }
-
-    if (!date) {
-      newErrors.date = "Esse campo é obrigatório";
-    }
-
+    if (!name.trim()) newErrors.name = "Esse campo é obrigatório";
+    if (!phone.trim()) newErrors.phone = "Esse campo é obrigatório";
+    if (!date) newErrors.date = "Esse campo é obrigatório";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -41,136 +29,132 @@ export default function BookNow() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!validate()) return;
-
     setLoading(true);
 
     emailjs
       .send(
         "service_9u05zfu",
         "template_tuduv8a",
-        {
-          name,
-          phone,
-          date,
-          description: description || "Não informado",
-        },
+        { name, phone, date, description },
         "2jXtkKX3sbuUoAz5C",
       )
       .then(() => {
-        alert("Agendamento enviado com sucesso!");
+        alert("Agendamento enviado!");
         setName("");
         setPhone("");
         setDate("");
         setDescription("");
       })
-      .catch((error) => {
-        console.error("Erro EmailJS:", error);
-        alert("Erro ao enviar o agendamento. Tente novamente.");
-      })
       .finally(() => setLoading(false));
   }
 
   return (
-    <section className="py-28 px-6 flex justify-center items-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-300 via-purple-200/60 to-zinc-400" />
-      <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-purple-300/40 rounded-full blur-3xl" />
+    <section
+      className="
+        relative min-h-screen
+        flex items-start sm:items-center
+        justify-center
+        px-3 sm:px-6
+        py-16 sm:py-24
+      "
+    >
+      {/* background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-zinc-200 to-zinc-400" />
 
-      {/* Card */}
-      <div className="relative z-10 w-full max-w-xl bg-zinc-900/80 backdrop-blur-xl border border-purple-800/30 rounded-2xl shadow-2xl shadow-purple-900/40 p-8">
-        <h2 className="text-4xl font-bold text-center text-white">
+      {/* FORM */}
+      <div
+        className="
+          relative z-10
+          w-full
+          sm:max-w-lg
+          bg-zinc-900/85 backdrop-blur-xl
+          border border-amber-500/30
+          rounded-xl sm:rounded-2xl
+          shadow-xl
+          p-5 sm:p-8
+        "
+      >
+        <h2 className="text-2xl sm:text-4xl font-bold text-center text-white">
           Agende seu <br />
-          <span className="text-purple-500">Horário</span>
+          <span className="text-amber-500">Horário</span>
         </h2>
 
-        <p className="text-center text-zinc-400 mt-4 text-sm">
+        <p className="text-center text-zinc-400 mt-2 text-sm">
           Preencha os dados abaixo para reservar seu corte.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          {/* Nome */}
           <div>
-            <label className="text-sm text-zinc-300">Nome *</label>
-            <div className="relative mt-2">
+            <label className="text-xs text-zinc-400">Nome *</label>
+            <div className="relative mt-1">
               <User
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-500"
+                size={16}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-amber-500"
               />
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Seu nome completo"
-                className={`w-full bg-zinc-950 border rounded-lg pl-10 pr-4 py-3 text-sm text-white focus:outline-none transition ${
-                  errors.name
-                    ? "border-red-500"
-                    : "border-zinc-800 focus:border-purple-600"
-                }`}
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
               />
             </div>
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name}</p>
-            )}
           </div>
 
+          {/* Telefone */}
           <div>
-            <label className="text-sm text-zinc-300">Telefone *</label>
-            <div className="relative mt-2">
+            <label className="text-xs text-zinc-400">Telefone *</label>
+            <div className="relative mt-1">
               <Phone
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-500"
+                size={16}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-amber-500"
               />
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="(83) 111111111"
-                className={`w-full bg-zinc-950 border rounded-lg pl-10 pr-4 py-3 text-sm text-white focus:outline-none transition ${
-                  errors.phone
-                    ? "border-red-500"
-                    : "border-zinc-800 focus:border-purple-600"
-                }`}
+                placeholder="(83) 99999-9999"
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
               />
             </div>
-            {errors.phone && (
-              <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
-            )}
           </div>
 
+          {/* Data */}
           <div>
-            <label className="text-sm text-zinc-300">Data *</label>
-            <div className="relative mt-2">
+            <label className="text-xs text-zinc-400">Data *</label>
+            <div className="relative mt-1">
               <Calendar
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-purple-500"
+                size={16}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-amber-500"
               />
               <input
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className={`w-full bg-zinc-950 border rounded-lg pl-10 pr-4 py-3 text-sm text-white focus:outline-none transition ${
-                  errors.date
-                    ? "border-red-500"
-                    : "border-zinc-800 focus:border-purple-600"
-                }`}
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-lg pl-9 pr-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500"
               />
             </div>
-            {errors.date && (
-              <p className="text-red-500 text-xs mt-1">{errors.date}</p>
-            )}
           </div>
 
+          {/* Descrição */}
           <div>
-            <label className="text-sm text-zinc-300">Descrição</label>
+            <label className="text-xs text-zinc-400">Descrição</label>
             <textarea
-              rows={4}
+              rows={3}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Diga como quer o seu corte ou alguma observação..."
-              className="w-full mt-2 bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-600 resize-none"
+              placeholder="Diga como quer o seu corte..."
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500 resize-none"
             />
           </div>
 
           <button
-            type="submit"
             disabled={loading}
-            className="w-full mt-4 bg-gradient-to-r from-purple-700 to-purple-800 hover:from-purple-600 hover:to-purple-700 disabled:opacity-60 text-white font-semibold py-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-800/40"
+            className="
+              w-full mt-3
+              bg-gradient-to-r from-yellow-400 to-orange-500
+              text-black font-semibold py-3 rounded-lg
+              transition hover:opacity-90
+            "
           >
             {loading ? "Enviando..." : "Agendar Horário"}
           </button>

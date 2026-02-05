@@ -48,19 +48,19 @@ export default function Reviews() {
     <section className="relative py-28 px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950" />
-      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-600/20 rounded-full blur-3xl" />
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-amber-500/20 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 text-purple-500 text-xs tracking-widest uppercase">
-            <span className="w-2 h-2 rounded-full bg-purple-500" />O que nossos
+          <div className="flex items-center justify-center gap-2 text-amber-500 text-xs tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-amber-500" />O que nossos
             clientes dizem
           </div>
 
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white">
             Client{" "}
-            <span className="italic text-purple-500 font-extrabold">
+            <span className="italic text-amber-500 font-extrabold">
               Reviews
             </span>
           </h2>
@@ -72,15 +72,15 @@ export default function Reviews() {
             <div
               key={index}
               className={`relative rounded-2xl p-6 bg-zinc-900/80 backdrop-blur-xl border transition
-              ${
-                review.highlight
-                  ? "border-purple-600 shadow-xl shadow-purple-900/40 scale-[1.02]"
-                  : "border-zinc-800 hover:border-purple-700/60"
-              }`}
+          ${
+            review.highlight
+              ? "border-amber-500 shadow-xl shadow-amber-900/30 scale-[1.02]"
+              : "border-zinc-800 hover:border-amber-500/60"
+          }`}
             >
               {/* Avatar */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-purple-500/40">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-amber-500/40">
                   <Image
                     src={review.avatar}
                     alt={review.name}
@@ -104,7 +104,7 @@ export default function Reviews() {
                     key={i}
                     size={14}
                     weight="fill"
-                    className="text-purple-500"
+                    className="text-amber-500"
                   />
                 ))}
               </div>
@@ -126,7 +126,7 @@ export default function Reviews() {
                   key={i}
                   size={16}
                   weight="fill"
-                  className="text-purple-500"
+                  className="text-amber-500"
                 />
               ))}
             </div>

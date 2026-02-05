@@ -51,10 +51,9 @@
 
 :root {
   --radius: 0.625rem;
-  --hsl-purple-800: 271 81% 30%; 
+  --hsl-purple-800: 271 81% 30%;
   --hsl-purple-600: 271 81% 50%;
-  --purple-500: #a855f7
-  --background: oklch(1 0 0);
+  --purple-500: #a855f7 --background: oklch(1 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -120,6 +119,18 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @layer base {
