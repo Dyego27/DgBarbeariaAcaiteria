@@ -46,7 +46,6 @@ const reviews = [
 export default function Reviews() {
   return (
     <section className="relative py-28 px-6 overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950" />
       <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-amber-500/20 rounded-full blur-3xl" />
 
@@ -66,7 +65,6 @@ export default function Reviews() {
           </h2>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
             <div
@@ -78,7 +76,6 @@ export default function Reviews() {
               : "border-zinc-800 hover:border-amber-500/60"
           }`}
             >
-              {/* Avatar */}
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden border border-amber-500/40">
                   <Image
@@ -109,7 +106,6 @@ export default function Reviews() {
                 ))}
               </div>
 
-              {/* Text */}
               <p className="text-zinc-300 text-sm leading-relaxed">
                 “{review.text}”
               </p>
@@ -117,7 +113,6 @@ export default function Reviews() {
           ))}
         </div>
 
-        {/* Footer rating */}
         <div className="mt-16 flex justify-center">
           <div className="flex items-center gap-3 bg-zinc-900/80 border border-zinc-800 rounded-full px-6 py-3">
             <div className="flex gap-1">

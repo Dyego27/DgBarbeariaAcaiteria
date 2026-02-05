@@ -24,7 +24,6 @@ export function Sidebar() {
         flex flex-col
       "
     >
-      {/* MENU */}
       <nav className="flex-1 flex flex-col items-center pt-24 gap-3">
         <SidebarItem
           icon={<House size={22} />}
@@ -81,7 +80,6 @@ export function Sidebar() {
         />
       </nav>
 
-      {/* RODAPÉ */}
       <div className="pb-4 flex flex-col items-center gap-3 border-t pt-4">
         <SidebarItem
           icon={<InstagramLogo size={22} />}

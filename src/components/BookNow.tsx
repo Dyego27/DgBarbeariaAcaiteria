@@ -58,10 +58,8 @@ export default function BookNow() {
         py-16 sm:py-24
       "
     >
-      {/* background */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-zinc-200 to-zinc-400" />
 
-      {/* FORM */}
       <div
         className="
           relative z-10
@@ -84,7 +82,6 @@ export default function BookNow() {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          {/* Nome */}
           <div>
             <label className="text-xs text-zinc-400">Nome *</label>
             <div className="relative mt-1">
@@ -101,7 +98,6 @@ export default function BookNow() {
             </div>
           </div>
 
-          {/* Telefone */}
           <div>
             <label className="text-xs text-zinc-400">Telefone *</label>
             <div className="relative mt-1">
@@ -118,7 +114,6 @@ export default function BookNow() {
             </div>
           </div>
 
-          {/* Data */}
           <div>
             <label className="text-xs text-zinc-400">Data *</label>
             <div className="relative mt-1">

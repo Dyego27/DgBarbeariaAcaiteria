@@ -5,7 +5,6 @@ export default function Hero() {
   return (
     <header className="bg-black flex items-center h-20 sm:h-24 w-full px-4 sm:px-6">
       <div className="flex items-center gap-3 sm:gap-4 w-full">
-        {/* Logo */}
         <Image
           src="/Logo.PNG"
           alt="Logo Barbearia"
@@ -13,10 +12,8 @@ export default function Hero() {
           height={60}
           className="object-contain sm:w-[90px] sm:h-[80px]"
           priority
-          alt="Logo da Barbearia do Denius"
         />
 
-        {/* Title */}
         <h1 className="text-white text-lg sm:text-2xl md:text-3xl text-center flex-1">
           Barbearia de{" "}
           <span
