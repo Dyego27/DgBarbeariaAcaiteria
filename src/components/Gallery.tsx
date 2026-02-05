@@ -15,7 +15,6 @@ export default function Gallery() {
 
   return (
     <section className="py-24 text-white border-t border-zinc-800">
-      {/* Header */}
       <div className="text-center mb-14 px-4">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-widest">
           Nossa Galeria
@@ -25,7 +24,6 @@ export default function Gallery() {
         </p>
       </div>
 
-      {/* Grid */}
       <div
         className="
           max-w-6xl mx-auto px-4
@@ -64,7 +62,6 @@ export default function Gallery() {
         })}
       </div>
 
-      {/* Button */}
       <div className="flex justify-center mt-14">
         <a
           href="https://www.instagram.com/dg_barbearia135/"

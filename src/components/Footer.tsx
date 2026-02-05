@@ -72,7 +72,7 @@ export default function Footer() {
 
           <div className="flex md:justify-end gap-3">
             <a
-              href="https://www.instagram.com/dg_barbearia135/"
+              href="https://www.instagram.com/barbearia_du_denius?igsh=NnBidjN3bWhqcmlt&utm_source=qr"
               className="w-9 h-9 flex items-center justify-center rounded-full bg-purple-600 hover:bg-purple-700 transition"
             >
               <InstagramLogo />

@@ -18,7 +18,7 @@ export default function AdressAutocomplete() {
                 label: "Rua",
                 value: "R. Ten. Cícero Cavalcante de Ataíde",
               },
-              { label: "Número", value: "139" },
+              { label: "Número", value: "135" },
               { label: "Bairro / Cidade", value: "Mamanguape - PB" },
               { label: "CEP", value: "58280-000" },
             ].map((item) => (
@@ -35,7 +35,7 @@ export default function AdressAutocomplete() {
           </div>
 
           <a
-            href="https://www.instagram.com/dg_barbearia135/"
+            href="https://www.google.com/maps/dir/-6.8354048,-35.1338496/R.+Ten.+C%C3%ADcero+Cavalcante+de+Ata%C3%ADde,+139,+Mamanguape+-+PB,+58280-000/@-6.8384988,-35.1341698,17z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x7ad067853e974d3:0xddc2923926d51265!2m2!1d-35.1293438!2d-6.8401752!3e0?entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="

@@ -84,7 +84,10 @@ export function Sidebar() {
         <SidebarItem
           icon={<InstagramLogo size={22} />}
           onClick={() =>
-            window.open("https://www.instagram.com/dg_barbearia135/", "_blank")
+            window.open(
+              "https://www.instagram.com/barbearia_du_denius?igsh=NnBidjN3bWhqcmlt&utm_source=qr",
+              "_blank",
+            )
           }
         />
 
