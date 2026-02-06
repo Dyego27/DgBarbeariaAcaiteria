@@ -32,7 +32,7 @@ export default function HomePage() {
         />
 
         <h1 className="text-white text-2xl sm:text-3xl md:text-4xl mt-6 leading-tight">
-          Seja Bem-Vindo à barbearia de{" "}
+          Seja Bem-Vindo à barbearia du{" "}
           <span
             className="
               bg-gradient-to-r 

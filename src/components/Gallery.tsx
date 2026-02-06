@@ -6,8 +6,8 @@ const images = [
   { id: 1, src: "/Corte1.jpeg", big: true },
   { id: 2, src: "/Corte2.jpeg" },
   { id: 3, src: "/Corte3.jpeg" },
-  { id: 4, src: "/Corte4.jpeg" },
-  { id: 5, src: "/Corte5.jpeg" },
+  { id: 4, src: "/Corte5.jpeg" },
+  { id: 5, src: "/Corte4.jpeg" },
 ];
 
 export default function Gallery() {
